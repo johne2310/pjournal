@@ -1,0 +1,2 @@
+# pjournal
+Ionic Journal App
