@@ -1,0 +1,24 @@
+<ion-view view-title="About Prayer Journal">
+    <ion-header-bar align-title="center" class="bar-dark">
+        <div class="buttons">
+            <button class="button button-assertive icon-left ion-ios-close-outline" ng-click="cancelJournal()"> Cancel</button>
+        </div>
+        <h1 class="title">New Journal Entry</h1>
+        <div class="buttons">
+            <button class="button button-calm icon-left ion-ios-checkmark-outline" ng-click="saveJournal()"> Save</button>
+        </div>
+    </ion-header-bar>
+    <ion-content ng-controller="journalCtrl">
+        <h1>About</h1>
+        <div class="list" ng-repeat="journal in journals">
+            <div class="item">
+                Date 1: {{ journal.date}}
+            </div>
+        </div>
+        <ion-list>
+            <ion-item>
+                Date 1 : {{ journal.date}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
