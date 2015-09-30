@@ -1,0 +1,111 @@
+/* Empty. Add your own CSS if you like */
+
+.low {
+    background-color: #FFEBE6;
+    border: 2px solid;
+    border-radius: 18px;
+    border-color: #990000;
+    color: black;
+}
+
+.mid {
+    background-color: #FFEBCC;
+    border: 2px solid;
+    border-radius: 18px;
+    border-color: #FF3300;
+    color: black;
+}
+
+.high {
+    background-color: #EBFFD6;
+    border: 2px solid;
+    border-radius: 18px;
+    border-color: #006600;
+    color: black;
+}
+
+.rowlevels {
+    font-size: 12px;
+    vertical-align: middle;
+    line-height: 20px;
+    height: 25;
+}
+
+.lifelevels {
+    border-top: 1px solid lightgrey;
+    color: black;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.icon-cloud:before {
+    content: "\e600";
+}
+
+.odd-row .item-complex .item-content {
+    background: lightgrey;
+}
+
+.even-row {
+    background: green;
+}
+
+.ion-item[isOdd='true'] > div.item-content {
+    background-color: yellow !important;
+}
+
+.ion-item[isOdd='false'] > div.item-content {
+    background-color: orange !important;
+}
+
+.item-complex .item-content[isOdd='true'] {
+    padding: 10px 20px 10px 15px;
+    background-color: lightblue !important;
+}
+
+.dark {
+    background-color: #3f4041 !important;
+    color: #ffffff;
+}
+
+.dark .scroll-content {
+    background-color: #3f4041 !important;
+}
+
+.dark .item {
+    background-color: #3f4041;
+    border: none;
+    border-top: 1px solid #464646;
+    border-bottom: 2px solid #333333;
+    padding: 20px;
+    max-height: none;
+}
+
+.dark .item:first-child {
+    border-top: 1px solid black;
+}
+
+.dark .item:last-child {
+    border-bottom: 1px solid #333333;
+}
+
+.dark .item.current {
+    background-color: #262727 !important;
+    border-top: 1px solid #464646 !important;
+    border-bottom: 2px solid #333333 !important;
+}
+
+.dark .item.current p,
+.dark .item.current h3 {
+    opacity: .7;
+}
+
+.dark h2,
+.dark h3,
+.dark p {
+    color: #F0F1F1;
+}
+
+.dark-head {
+    text-decoration: none;
+}

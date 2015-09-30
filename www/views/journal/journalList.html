@@ -1,0 +1,63 @@
+<ion-view view-title="Prayer Journal - Entry List">
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="journal in vm.journals | orderBy: '-date'">
+                <!--                <div class="item-text-wrap" style="float: left">-->
+                <b>{{ journal.date | date:shortDate}}</b> - {{journal.notes | limitTo: 80}} {{journal.notes.length &gt; 80 ? '&hellip;' : ''}}
+                <!--                </div>-->
+                <ion-option-button class="button-info button-dark" ng-click="vm.showEditBirthdayModal(birthday)">
+                    Edit
+                </ion-option-button>
+                <ion-option-button class="button-assertive icon-left ion-trash-b" ng-click="deleteBirthday(birthday)">
+                    Delete
+                </ion-option-button>
+                <br>
+                <br>
+                <div class="row lifelevels" align="center">
+                    <div class="col">
+                        <p>Life Levels</p>
+                    </div>
+                </div>
+                <div class="row rowlevels" align="center">
+                    <div class="col" ng-show="journal.physical" ng-class="{low: (journal.physical < 33), mid: (journal.physical > 32 && journal.physical < 67), high: (journal.physical >66)} ">
+                        P - {{journal.physical}}
+                    </div>&nbsp;
+                    <div class="col" ng-show="journal.emotional" ng-class="{low: (journal.emotional < 33), mid: (journal.emotional > 33 && journal.emotional <67), high: (journal.emotional >66)} ">
+                        E - {{journal.emotional}}
+                    </div>&nbsp;
+                    <div class="col" ng-show="journal.spiritual" ng-class="{low: (journal.spiritual < 33), mid: (journal.spiritual > 33 && journal.spiritual <67), high: (journal.spiritual >66)} ">
+                        S - {{journal.spiritual}}
+                    </div>
+
+
+                </div>
+
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+
+
+    <!--   start subheader-->
+    <ion-footer-bar class="bar bar-subfooter item-input-inset">
+
+        <label class="item-input-wrapper">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" class="searchbox" placeholder="Enter search terms" id="searchClients" name="searchClients" ng-model="searchList" ng-change="searchHandler()">
+            <a on-touch="clearSearch()" class="button button-icon icon ion-ios-close-empty"></a>
+        </label>
+
+    </ion-footer-bar>
+    <!-- End subheader -->
+
+    <ion-footer-bar align-title="center " class=" bar bar-stable">
+        <div class=" buttons ">
+            <button class="button button-assertive " ng-click="setLifeLevels() ">Delete</button>
+        </div>
+        <h2 class="title ">Title</h2>
+        <div class="buttons " ng-click="vm.addJournal() ">
+            <button class="button button-positive ">New Entry</button>
+        </div>
+    </ion-footer-bar>
+
+</ion-view>

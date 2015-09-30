@@ -1,0 +1,88 @@
+<ion-view view-title="Prayer Journal">
+    <ion-content>
+
+        <div class="list card" ng-repeat="journal in vm.journals | orderBy: '-date'">
+            <div class="item item-divider item-dark ">
+                Journal Notes
+            </div>
+            <div class="item">
+                <label>
+                    <span class="input-label ">Date:  {{ journal.date | date: shortDate }}</span>
+                </label>
+            </div>
+            <div ng-show="journal.notes" class="item item-body item-text-wrap">
+                {{journal.notes}}
+<!--                <textarea id="journalId2" rows="5" ng-change="expandText()" ng-keyup="expandText()" placeholder="Write Journal here..." ng-model="journal.notes" readonly></textarea>-->
+            </div>
+            <div ng-show="!journal.notes" class="item item-input item-text-wrap" style="height: 200px" align="Top">
+                <p>&nbsp;&nbsp; Journal notes will go here...</p>
+            </div>
+
+
+            <div class="row lifelevels" align="center">
+                <div class="col">
+                    <p>Life Levels</p>
+                </div>
+            </div>
+            <div class="row rowlevels" align="center">
+                <div class="col" ng-show="journal.physical" ng-class="{low: (journal.physical < 33), mid: (journal.physical > 32 && journal.physical < 67), high: (journal.physical >66)} ">
+                    P - {{journal.physical}}
+                </div>&nbsp;
+                <div class="col" ng-show="journal.emotional" ng-class="{low: (journal.emotional < 33), mid: (journal.emotional > 33 && journal.emotional <67), high: (journal.emotional >66)} ">
+                    E - {{journal.emotional}}
+                </div>&nbsp;
+                <div class="col" ng-show="journal.spiritual" ng-class="{low: (journal.spiritual < 33), mid: (journal.spiritual > 33 && journal.spiritual <67), high: (journal.spiritual >66)} ">
+                    S - {{journal.spiritual}}
+                </div>
+
+
+            </div>
+
+
+
+            <!--
+            <div class="item item-divider item-calm " ng-show="journal.physical || journal.emotional || journal.spiritual">
+    Life Levels
+</div>
+<div class="row" align="center">
+    <div class="col physical"> {{journal.physical}} </div>&nbsp;
+    <div class="col emotional"> {{journal.emotional}} </div>&nbsp;
+    <div class="col spiritual"> {{journal.spiritual}} </div>
+</div>
+<div class="row" align="center">
+    <div class="col"> Physical</div>
+    <div class="col"> Emotional </div>
+    <div class="col"> Spiritual </div>
+</div>-->
+
+        </div>
+
+
+        <!--                responsive grid for gauges-->
+
+        <!--
+     <div class="row responsive-sm ">
+    <div id="physical2" class="200x160px " align="center" value="{{journal.physical}}" ng-model="journal.physical"></div>
+
+    <div ng-show="journal.emotional" id="emotional" class="200x160px " align="center"></div>
+
+    <div ng-show="journal.spiritual" id="spiritual" class="200x160px " align="center"></div>
+</div>
+-->
+        </div>
+
+        <!--end gauges grid-->
+
+
+    </ion-content>
+    <!--use footer bar as toolbar for buttons-->
+    <ion-footer-bar align-title="left" class="bar-stable">
+        <div class="buttons">
+            <button class="button button-assertive " ng-click="setLifeLevels()">Delete</button>
+        </div>
+        <h1 class="title"></h1>
+        <div class="buttons" ng-click="vm.addJournal()">
+            <button class="button button-positive">New Entry</button>
+        </div>
+    </ion-footer-bar>
+</ion-view>

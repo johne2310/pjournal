@@ -1,0 +1,92 @@
+<ion-modal-view>
+    <ion-view view-title="Prayer Journal">
+        <ion-header-bar align-title="center" class="bar-dark">
+            <div class="buttons">
+                <button class="button button-assertive icon-left ion-ios-close-outline" ng-click="cancelJournal()"> Cancel</button>
+            </div>
+            <h1 class="title">New Journal Entry</h1>
+            <div class="buttons">
+                <button class="button button-calm icon-left ion-ios-checkmark-outline" ng-click="saveJournal()"> Save</button>
+            </div>
+        </ion-header-bar>
+
+        <ion-content>
+
+            <div class="item item-divider item-stable ">
+                Enter Journal Details
+            </div>
+
+
+            <!--           start date input-->
+            <div class="">
+                <label class="item item-input">
+                    <span class="input-label">Date</span>
+                    <input type="date" placeholder="Date " size="25" ng-model="journal.date">
+                </label>
+            </div>
+            <!--                end date input-->
+
+            <!--                Life Levels-->
+
+            <div class="item item-divider">
+                Life Levels
+            </div>
+            <div class="">
+                <div class="col">
+                    <label class="item-input">
+                        <span class="input-label">Physical</span>
+
+                        <div class="range range-positive">
+                            <i class="icon ion-sad-outline"></i>
+                            <input type="range" name="volume" min="0" max="10" value="5" ng-model="journal.physical">
+                            <i class="icon ion-happy-outline"></i>
+                        </div>
+                    </label>
+                    <label class="item-input">
+                        <span class="input-label">Emotional</span>
+
+                        <div class="range range-balanced">
+                            <i class="icon ion-sad-outline"></i>
+                            <input type="range" name="volume" min="0" max="10" value="5" ng-model="journal.emotional">
+                            <i class="icon ion-happy-outline"></i>
+                        </div>
+                    </label>
+                    <label class="item-input">
+                        <span class="input-label">Spiritual</span>
+
+                        <div class="range range-energized">
+                            <i class="icon icon-sad-outline"></i>
+                            <input type="range" name="volume" min="0" max="10" value="5" ng-model="journal.spiritual">
+                            <i class="icon ion-happy-outline"></i>
+                        </div>
+                    </label>
+                </div>
+
+
+                <div class="col">
+                    <label class="item item-input">
+                        <span class="input-label">Emotional</span>
+                        <input type="tel" min="0" max="100" placeholder="Emotional rating 0-100" size="25" ng-model="journal.emotional">
+                    </label>
+                </div>
+                <div class="col">
+                    <label class="item item-input">
+                        <span class="input-label">Spiritual</span>
+                        <input type="tel" min="0" max="100" placeholder="Spiritual rating 0-100" size="25" ng-model="journal.spiritual">
+                    </label>
+                </div>
+            </div>
+            <!--                end Life Levels-->
+
+            <!--                start journal notes-->
+            <div class="item" style="min-height:200px">
+                <label class="item item-input">
+                    <!--                    <span class="input-label">Spiritual</span>-->
+                    <textarea id="journalId" rows="10" ng-change="expandText()" ng-keyup="expandText()" placeholder="Write Journal here..." ng-model="journal.notes"></textarea>
+                </label>
+            </div>
+            <!--end journal notes-->
+
+        </ion-content>
+    </ion-view>
+</ion-modal-view>
